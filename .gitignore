@@ -1,0 +1,10 @@
+.DS_Store
+.cache
+.env
+.eslintcache
+.git
+.next
+.vscode
+node_modules
+npm-debug.log
+package-lock.json
