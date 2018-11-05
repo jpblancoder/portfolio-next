@@ -2,13 +2,13 @@ import "../styles/bootstrap/less/bootstrap.less";
 import "../styles/app.less";
 
 import Head from "next/head";
-import Layout from "../components/Layout.js";
-import Sidebar from "../components/Sidebar.js";
+import Layout from "../components/Layout";
+import Sidebar from "../components/Sidebar";
 
-import Intro from "../components/Intro.js";
-import Experience from "../components/Experience.js";
-import SocialLinks from "../components/SocialLinks.js";
-import Hashtags from "../components/Hashtags.js";
+import Intro from "../components/Sidebar/Intro";
+import Experience from "../components/Sidebar/Experience";
+import SocialLinks from "../components/Sidebar/SocialLinks";
+import Hashtags from "../components/Sidebar/Hashtags";
 
 const About = () => (
   <Layout>

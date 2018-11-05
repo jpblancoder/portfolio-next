@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Header from "../components/Header.js";
+import Header from "./Header";
 
 const Sidebar = props => {
   const pages = {
