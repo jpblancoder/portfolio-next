@@ -1,6 +1,6 @@
-const SiteList = () => (
+const SiteList = props => (
   <ul className="list-unstyled sidebar-list-sites clearfix">
-    <li ng-repeat="(cat, value) in vm.projects | groupBy: 'category'">
+    <li ng-repeat="(cat, value) in vm.projects'">
       <h2 className="text-capitalize">
         <a href="/todo" ui-sref="sites({ categoryID: cat, projectID: null })">
           <i className="sidebar-cat-link" ng-class="vm.categoryClass(cat)" /> <span ng-bind="cat" />

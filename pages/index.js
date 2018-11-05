@@ -1,8 +1,10 @@
 import "../styles/bootstrap/less/bootstrap.less";
 import "../styles/app.less";
+
 import Head from "next/head";
 import Layout from "../components/Layout.js";
 import Sidebar from "../components/Sidebar.js";
+
 import Intro from "../components/Intro.js";
 import Experience from "../components/Experience.js";
 import SocialLinks from "../components/SocialLinks.js";
