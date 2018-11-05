@@ -1,19 +1,30 @@
 import "../styles/bootstrap/less/bootstrap.less";
 import "../styles/app.less";
-
 import Head from "next/head";
+import Layout from "../components/Layout.js";
+import Sidebar from "../components/Sidebar.js";
+import Intro from "../components/Intro.js";
+import Experience from "../components/Experience.js";
+import SocialLinks from "../components/SocialLinks.js";
+import Hashtags from "../components/Hashtags.js";
 
-const Index = () => (
-  <div>
+const About = () => (
+  <Layout>
     <Head>
-      <title>Jean Pierre Blanchette - Portfolio</title>
+      <title>Jean Pierre Blanchette - About</title>
     </Head>
-    <p>Hello Next.js</p>
-    <h1 className="sidebar-title">Jean Pierre Blanchette</h1>
-    <a className="btn btn-primary" href="#/">
-      <i className="fa fa-lg fa-android" aria-hidden="true" /> <strong>About</strong>
-    </a>
-  </div>
+    <div className="row">
+      <div className="col-xs-12 col-sm-12 col-md-4">
+        <Sidebar page="index">
+          <Intro />
+          <Experience />
+          <SocialLinks />
+          <Hashtags />
+        </Sidebar>
+      </div>
+      <div className="hidden-xs hidden-sm col-md-8 cover-photo">&nbsp;</div>
+    </div>
+  </Layout>
 );
 
-export default Index;
+export default About;
