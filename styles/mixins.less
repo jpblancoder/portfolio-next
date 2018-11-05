@@ -1,0 +1,15 @@
+// branded hyperlinks
+.link-variant(@color) {
+  color: @color;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: darken(@color, 10%);
+    text-decoration: none;
+  }
+
+  &:focus {
+    .tab-focus();
+  }
+}
