@@ -9,12 +9,14 @@ import Layout from "../components/Layout";
 import Sidebar from "../components/Sidebar";
 import SiteNav from "../components/Sites/Nav";
 // import SiteShots from "../components/Sites/Shots";
-// import Info from "../components/Sites/Info";
+import Info from "../components/Sites/Info";
 
 import projects from "../lib/projects.js";
 import groupBy from "lodash/groupBy";
 
 const groups = groupBy(projects, "category");
+console.log("projects", projects);
+console.log("groups", groups);
 
 class Portfolio extends React.Component {
   handleCategorySelect = category => {
@@ -45,7 +47,11 @@ class Portfolio extends React.Component {
             </Sidebar>
           </div>
           <div className="col-md-5">{/* <SiteShots site={router.query.site} /> */}</div>
-          <div className="col-md-3">{/* <Info site={router.query.site} /> */}</div>
+          <div className="col-md-3">
+            {JSON.stringify(router.query.category)}
+            {JSON.stringify(router.query.site)}
+            {JSON.stringify(projects[router.query.category])}
+          </div>
         </div>
       </Layout>
     );
