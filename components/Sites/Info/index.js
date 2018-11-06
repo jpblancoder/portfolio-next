@@ -1,4 +1,4 @@
-const SiteInfo = () => (
+const Info = () => (
   <div className="project-wrapper">
     <div ng-if="vm.selectedSite.tech.length > 0">
       <h3 className="project-subtitle">
@@ -53,4 +53,4 @@ const SiteInfo = () => (
   </div>
 );
 
-export default SiteInfo;
+export default Info;

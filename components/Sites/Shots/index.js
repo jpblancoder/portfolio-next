@@ -1,4 +1,4 @@
-const Sidebar = () => (
+const Shots = () => (
   <div className="project-wrapper" ng-if="vm.selectedSite !== null">
     <h2 className="project-title">
       {/* vm.selectedSite.title */} <small>{/* vm.selectedSite.year */}</small>
@@ -34,4 +34,4 @@ const Sidebar = () => (
   </div>
 );
 
-export default Sidebar;
+export default Shots;
