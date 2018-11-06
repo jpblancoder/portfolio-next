@@ -4,36 +4,37 @@ import Link from "next/link";
 
 class Nav extends React.Component {
   render() {
+    const { sites, category } = this.props;
     return (
       <ul className="list-unstyled sidebar-list-sites clearfix">
-        {Object.keys(this.props.sites).map(this.renderCategoryLink)}
+        {Object.keys(sites).map(cat => this.renderCategoryLink(sites, category, cat))}
       </ul>
     );
   }
-  renderCategoryLink = cat => {
+  renderCategoryLink = (sites, selected, category) => {
     return (
-      <li key={cat}>
+      <li key={category}>
         <h2 className="text-capitalize">
-          <Link href={`/sites/${cat}`}>
+          <Link href={`/sites/${category}`}>
             <a>
-              <i className={`sidebar-cat-link ${this.classIconFolder(cat, this.props.category)}`} /> {cat}
+              <i className={`sidebar-cat-link ${this.classIconFolder(category, selected)}`} /> {category}
             </a>
           </Link>
         </h2>
-        {this.renderSiteLinks(cat)}
+        {this.renderSiteLinks(sites, selected, category)}
       </li>
     );
   };
-  renderSiteLinks = cat => {
-    const handleChange = event => this.handleSelectOption(cat, event.currentTarget.value);
-    const keys = Object.keys(this.props.sites[cat]);
-    return cat !== this.props.category ? null : (
+  renderSiteLinks = (sites, selected, category) => {
+    const handleChange = event => this.handleSelectOption(category, event.currentTarget.value);
+    const keys = Object.keys(sites[category]);
+    return category !== selected ? null : (
       <div>
         <select className="sidebar-select hidden-md hidden-lg hidden-xl" onBlur={handleChange} onChange={handleChange}>
           <option value="">Select project...</option>
-          {keys.map(site => this.renderSelectOption(this.props.sites[cat][site]))}
+          {keys.map(site => this.renderSelectOption(sites[category][site]))}
         </select>
-        <ul className="hidden-xs hidden-sm">{keys.map(site => this.renderSiteLink(this.props.sites[cat][site]))}</ul>
+        <ul className="hidden-xs hidden-sm">{keys.map(site => this.renderSiteLink(sites[category][site]))}</ul>
       </div>
     );
   };
@@ -56,8 +57,12 @@ class Nav extends React.Component {
   };
   handleSelectOption = (cat, value) => {
     const slash = value.length > 0 ? "/" : "";
-    const route = `/sites/${cat}${slash}${value}`;
-    Router.push(route);
+    const asPath = `/portfolio/${cat}${slash}${value}`;
+    Router.push({
+      asPath: asPath,
+      pathname: "/sites",
+      query: { category: cat, site: value }
+    });
   };
   classIconFolder = (current, selected) => {
     return current === selected ? "fa fa-folder-open-o" : "fa fa-folder-o";

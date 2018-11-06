@@ -2,30 +2,24 @@ import Link from "next/link";
 import Header from "./Header";
 
 const Sidebar = props => {
-  const pages = {
-    index: {
-      icon: "fa-briefcase",
-      label: "Portfolio",
-      href: "/sites"
-    },
-    sites: {
-      icon: "fa-android",
-      label: "About",
-      href: "/"
-    }
-  };
-  const anchor = pages[props.page];
-
   return (
     <div className="sidebar">
       <Header />
 
       <div className="sidebar-action">
-        <Link href={anchor.href}>
-          <a className="btn btn-primary">
-            <i className={`fa fa-lg ${anchor.icon}`} aria-hidden="true" /> <strong>{anchor.label}</strong>
-          </a>
-        </Link>{" "}
+        {props.page === "index" ? (
+          <Link as="/sites" href="/portfolio">
+            <a className="btn btn-primary">
+              <i className="fa fa-lg fa-briefcase" aria-hidden="true" /> <strong>Portfolio</strong>
+            </a>
+          </Link>
+        ) : (
+          <Link href="/">
+            <a className="btn btn-primary">
+              <i className="fa fa-lg fa-android" aria-hidden="true" /> <strong>About</strong>
+            </a>
+          </Link>
+        )}{" "}
         <a
           className="btn btn-success"
           target="_blank"

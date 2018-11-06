@@ -2,9 +2,9 @@ import "../styles/bootstrap/less/bootstrap.less";
 import "../styles/app.less";
 
 import Head from "next/head";
+
 import Layout from "../components/Layout";
 import Sidebar from "../components/Sidebar";
-
 import Intro from "../components/Sidebar/Intro";
 import Experience from "../components/Sidebar/Experience";
 import SocialLinks from "../components/Sidebar/SocialLinks";
