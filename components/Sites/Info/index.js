@@ -4,6 +4,14 @@ class Info extends React.Component {
   render() {
     const { tech, features, category } = this.props.site;
 
+    // return (
+    //   <div>
+    //     <span>{tech}</span>
+    //     <span>{features}</span>
+    //     <span>{category}</span>
+    //     <pre>{JSON.stringify(this.props.site, null, 2)}</pre>
+    //   </div>
+    // );
     return (
       <div className="project-wrapper">
         {this.renderTech(tech)}
@@ -19,7 +27,7 @@ class Info extends React.Component {
           <i className="fa fa-cog" /> Technology
         </h3>
         <ul className="project-tech">
-          {Object.keys(tech).map((t, i) => (
+          {tech.map((t, i) => (
             <li key={i}>{t}</li>
           ))}
         </ul>
@@ -33,7 +41,7 @@ class Info extends React.Component {
           <i className="fa fa-check-circle" /> Features
         </h3>
         <ul className="project-tech">
-          {Object.keys(features).map((f, i) => (
+          {features.map((f, i) => (
             <li key={i}>{f}</li>
           ))}
         </ul>

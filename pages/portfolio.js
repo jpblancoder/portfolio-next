@@ -9,14 +9,15 @@ import Layout from "../components/Layout";
 import Sidebar from "../components/Sidebar";
 import SiteNav from "../components/Sites/Nav";
 // import SiteShots from "../components/Sites/Shots";
-import Info from "../components/Sites/Info";
+import SiteInfo from "../components/Sites/Info";
 
 import projects from "../lib/projects.js";
 import groupBy from "lodash/groupBy";
+import find from "lodash/find";
 
 const groups = groupBy(projects, "category");
-console.log("projects", projects);
-console.log("groups", groups);
+// console.log("projects", projects);
+// console.log("groups", groups);
 
 class Portfolio extends React.Component {
   handleCategorySelect = category => {
@@ -29,6 +30,8 @@ class Portfolio extends React.Component {
   };
   render() {
     const { router } = this.props;
+    const { category, site } = router.query;
+    const project = find(groups[category], { project: site });
     return (
       <Layout>
         <Head>
@@ -48,9 +51,7 @@ class Portfolio extends React.Component {
           </div>
           <div className="col-md-5">{/* <SiteShots site={router.query.site} /> */}</div>
           <div className="col-md-3">
-            {JSON.stringify(router.query.category)}
-            {JSON.stringify(router.query.site)}
-            {JSON.stringify(projects[router.query.category])}
+            <SiteInfo site={project} />
           </div>
         </div>
       </Layout>
