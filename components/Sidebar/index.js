@@ -10,13 +10,19 @@ const Sidebar = props => {
         {props.page === "index" ? (
           <Link as="/sites" href="/portfolio">
             <a className="btn btn-primary">
-              <i className="fa fa-lg fa-briefcase" aria-hidden="true" /> <strong>Portfolio</strong>
+              <span role="img" aria-label="briefcase">
+                🖥
+              </span>{" "}
+              <strong>Portfolio</strong>
             </a>
           </Link>
         ) : (
           <Link href="/">
             <a className="btn btn-primary">
-              <i className="fa fa-lg fa-android" aria-hidden="true" /> <strong>About</strong>
+              <span role="img" aria-label="nerd">
+                🤓
+              </span>{" "}
+              <strong>About</strong>
             </a>
           </Link>
         )}{" "}
@@ -26,7 +32,10 @@ const Sidebar = props => {
           rel="noopener noreferrer"
           href="https://docs.google.com/document/d/16S1HfHxvKnCP8eointMSnB7t4V_3CPD_5zSNWWclWfM/edit?usp=sharing"
         >
-          <i className="fa fa-lg fa-file-text-o" aria-hidden="true" /> <strong>Resume</strong>
+          <span role="img" aria-label="paper">
+            📄
+          </span>{" "}
+          <strong>Resume</strong>
         </a>
       </div>
 

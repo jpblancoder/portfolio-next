@@ -16,7 +16,10 @@ class Info extends React.Component {
     return tech.length === 0 ? null : (
       <div>
         <h3 className="project-subtitle">
-          <i className="fa fa-cog" /> Technology
+          <span role="img" aria-label="gear">
+            ⚙️
+          </span>{" "}
+          <span>Technology</span>
         </h3>
         <ul className="project-tech">
           {tech.map((t, i) => (
@@ -30,7 +33,10 @@ class Info extends React.Component {
     return features.length === 0 ? null : (
       <div>
         <h3 className="project-subtitle">
-          <i className="fa fa-check-circle" /> Features
+          <span role="img" aria-label="check mark">
+            ✅
+          </span>{" "}
+          <span>Features</span>
         </h3>
         <ul className="project-tech">
           {features.map((f, i) => (
@@ -59,7 +65,10 @@ class Info extends React.Component {
     return !href || !label ? null : (
       <div>
         <h3 className="project-subtitle">
-          <i className="fa fa-copyright" /> Copyright
+          <span role="img" aria-label="copyright">
+            ©
+          </span>{" "}
+          <span>Copyright</span>
         </h3>
         <div className="project-copyright">
           <div>

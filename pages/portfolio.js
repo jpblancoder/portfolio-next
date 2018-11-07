@@ -16,18 +16,8 @@ import groupBy from "lodash/groupBy";
 import find from "lodash/find";
 
 const groups = groupBy(projects, "category");
-// console.log("projects", projects);
-// console.log("groups", groups);
 
 class Portfolio extends React.Component {
-  handleCategorySelect = category => {
-    this.setState({ category });
-    console.log("handleCategorySelect", this.state);
-  };
-  handleSiteSelect = site => {
-    this.setState({ site });
-    console.log("handleSiteSelect", this.state);
-  };
   render() {
     const { router } = this.props;
     const { category, site } = router.query;
@@ -40,13 +30,7 @@ class Portfolio extends React.Component {
         <div className="row">
           <div className="col-md-4">
             <Sidebar page="sites">
-              <SiteNav
-                sites={groups}
-                category={router.query.category}
-                // site={router.query.site}
-                // onCategorySelect={this.handleCategorySelect}
-                // onSiteSelect={this.handleSiteSelect}
-              />
+              <SiteNav sites={groups} category={router.query.category} />
             </Sidebar>
           </div>
           <div className="col-md-5">

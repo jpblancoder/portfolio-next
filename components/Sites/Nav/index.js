@@ -17,7 +17,10 @@ class Nav extends React.Component {
         <h2 className="text-capitalize">
           <Link href={`/sites/${category}`}>
             <a>
-              <i className={`sidebar-cat-link ${this.classIconFolder(category, selected)}`} /> {category}
+              <span role="img" aria-label="folder">
+                {category === selected ? "📂" : "📁"}
+              </span>{" "}
+              {category}
             </a>
           </Link>
         </h2>
@@ -63,9 +66,6 @@ class Nav extends React.Component {
       pathname: "/sites",
       query: { category: cat, site: value }
     });
-  };
-  classIconFolder = (current, selected) => {
-    return current === selected ? "fa fa-folder-open-o" : "fa fa-folder-o";
   };
 }
 

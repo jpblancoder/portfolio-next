@@ -24,7 +24,10 @@ class Shots extends React.Component {
     return !url ? null : (
       <div className="project-url">
         <a target="_blank" rel="noopener noreferrer" href={url}>
-          {url} <i className="fa fa-external-link" />
+          {url}{" "}
+          <span role="img" aria-label="link">
+            🔗
+          </span>
         </a>
       </div>
     );
