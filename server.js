@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 const express = require("express");
 const next = require("next");
+const map = require("./lib/routes");
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
@@ -11,8 +12,8 @@ app
   .then(() => {
     const server = express();
 
-    server.get("/sites/:category/:site", (req, res) => {
-      const actualPage = "/portfolio";
+    server.get(map.sites.route + "/:category/:site", (req, res) => {
+      const actualPage = map.sites.page;
       const queryParams = {
         category: req.params.category,
         site: req.params.site
@@ -20,8 +21,8 @@ app
       app.render(req, res, actualPage, queryParams);
     });
 
-    server.get("/sites/:category", (req, res) => {
-      const actualPage = "/portfolio";
+    server.get(map.sites.route + "/:category", (req, res) => {
+      const actualPage = map.sites.page;
       const queryParams = {
         category: req.params.category
       };
