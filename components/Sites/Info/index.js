@@ -2,6 +2,7 @@ import React from "react";
 
 class Info extends React.Component {
   render() {
+    if (!this.props.site) return null;
     const { tech, features, category } = this.props.site;
     return (
       <div className="project-wrapper">

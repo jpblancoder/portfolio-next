@@ -8,7 +8,7 @@ import { withRouter } from "next/router";
 import Layout from "../components/Layout";
 import Sidebar from "../components/Sidebar";
 import SiteNav from "../components/Sites/Nav";
-// import SiteShots from "../components/Sites/Shots";
+import SiteShots from "../components/Sites/Shots";
 import SiteInfo from "../components/Sites/Info";
 
 import projects from "../lib/projects.js";
@@ -49,7 +49,9 @@ class Portfolio extends React.Component {
               />
             </Sidebar>
           </div>
-          <div className="col-md-5">{/* <SiteShots site={router.query.site} /> */}</div>
+          <div className="col-md-5">
+            <SiteShots site={project} />
+          </div>
           <div className="col-md-3">
             <SiteInfo site={project} />
           </div>

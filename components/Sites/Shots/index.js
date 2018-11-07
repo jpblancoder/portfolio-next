@@ -1,37 +1,63 @@
-const Shots = () => (
-  <div className="project-wrapper" ng-if="vm.selectedSite !== null">
-    <h2 className="project-title">
-      {/* vm.selectedSite.title */} <small>{/* vm.selectedSite.year */}</small>
-    </h2>
+import React from "react";
 
-    <div ng-if="vm.selectedSite.url" className="project-url">
-      <a target="_blank" href="{/* vm.selectedSite.url */}">
-        {/* vm.selectedSite.url */} <i className="fa fa-external-link" />
-      </a>
-    </div>
+class Shots extends React.Component {
+  render() {
+    if (!this.props.site) return null;
+    const { title, year, url, intro, category, project, screens } = this.props.site;
+    return (
+      <div className="project-wrapper">
+        {this.renderTitle(title, year)}
+        {this.renderUrl(url)}
+        {this.renderIntro(intro)}
+        {this.renderScreens(category, project, screens)}
+      </div>
+    );
+  }
+  renderTitle = (title, year) => {
+    return !title || !year ? null : (
+      <h2 className="project-title">
+        {title} <small>{year}</small>
+      </h2>
+    );
+  };
+  renderUrl = url => {
+    return !url ? null : (
+      <div className="project-url">
+        <a target="_blank" rel="noopener noreferrer" href={url}>
+          {url} <i className="fa fa-external-link" />
+        </a>
+      </div>
+    );
+  };
+  renderIntro = intro => {
+    return !intro ? null : <div className="project-intro">{intro}</div>;
+  };
+  renderScreens = (category, project, screens) => {
+    if (screens === 0) return null;
 
-    <div ng-if="vm.selectedSite.intro" className="project-intro">
-      {/* vm.selectedSite.intro */}
-    </div>
+    let pics = [];
+    for (let i = 1; i <= screens; i++) {
+      pics.push(
+        <a target="_blank" rel="noopener noreferrer" href={`/static/screens/${category}/${project}/source/${i}.png`}>
+          <img
+            className="img-responsive"
+            src={`/static/screens/${category}/${project}/${i}.png`}
+            alt={`${project} #${i}`}
+          />
+        </a>
+      );
+    }
 
-    <div ng-if="vm.selectedSite.screens > 0" className="project-screens-wrap">
-      <ul className="project-screens-list">
-        <li ng-repeat="i in vm.getNumberArray(vm.selectedSite.screens) track by $index">
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="/img/screens/{/* vm.selectedSite.category */}/{/* vm.selectedSite.project */}/source/{/* $index + 1 */}.png"
-          >
-            <img
-              className="img-responsive"
-              ng-src="/img/screens/{/* vm.selectedSite.category */}/{/* vm.selectedSite.project */}/{/* $index + 1 */}.png"
-              alt="{/* vm.selectedSite.project */} #{/* $index + 1 */}"
-            />
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-);
+    return (
+      <div className="project-screens-wrap">
+        <ul className="project-screens-list">
+          {pics.map((p, i) => (
+            <li key={i}>{p}</li>
+          ))}
+        </ul>
+      </div>
+    );
+  };
+}
 
 export default Shots;
