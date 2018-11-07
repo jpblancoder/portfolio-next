@@ -3,15 +3,6 @@ import React from "react";
 class Info extends React.Component {
   render() {
     const { tech, features, category } = this.props.site;
-
-    // return (
-    //   <div>
-    //     <span>{tech}</span>
-    //     <span>{features}</span>
-    //     <span>{category}</span>
-    //     <pre>{JSON.stringify(this.props.site, null, 2)}</pre>
-    //   </div>
-    // );
     return (
       <div className="project-wrapper">
         {this.renderTech(tech)}
@@ -49,48 +40,37 @@ class Info extends React.Component {
     );
   };
   renderCategory = category => {
-    return (
+    const companies = {
+      morneau: {
+        href: "http://www.morneaushepell.com",
+        label: "Morneau Shepell"
+      },
+      shepell: {
+        href: "http://www.shepellfgi.com",
+        label: "Shepell&middot;fgi"
+      },
+      quidnovis: {
+        href: "http://www.quidnovis.net/",
+        label: "Quid Novis Internet Productions"
+      }
+    };
+    const { href, label } = companies[category];
+    return !href || !label ? null : (
       <div>
         <h3 className="project-subtitle">
           <i className="fa fa-copyright" /> Copyright
         </h3>
-        <div className="project-copyright">{this.renderCopyRight(category)}</div>
+        <div className="project-copyright">
+          <div>
+            Site Design &amp; Programming:{" "}
+            <a href={href} target="_blank" rel="noopener noreferrer">
+              {label}
+            </a>
+            .
+          </div>
+        </div>
       </div>
     );
-  };
-  renderCopyRight = category => {
-    switch (category) {
-      case "morneau":
-        return (
-          <div>
-            Site Design &amp; Programming:{" "}
-            <a href="http://www.morneaushepell.com" target="_blank" rel="noopener noreferrer">
-              Morneau Shepell
-            </a>
-            .
-          </div>
-        );
-      case "shepell":
-        return (
-          <div>
-            Site Design &amp; Programming:{" "}
-            <a href="http://www.shepellfgi.com" target="_blank" rel="noopener noreferrer">
-              Shepell&middot;fgi
-            </a>
-            .
-          </div>
-        );
-      case "quidnovis":
-        return (
-          <div>
-            Site Design &amp; Programming:{" "}
-            <a href="http://www.quidnovis.net/" target="_blank" rel="noopener noreferrer">
-              Quid Novis Internet Productions
-            </a>
-            .
-          </div>
-        );
-    }
   };
 }
 
