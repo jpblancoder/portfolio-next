@@ -1,6 +1,7 @@
 import React from "react";
 import Router from "next/router";
 import Link from "next/link";
+import map from "../../../lib/routes";
 
 class Nav extends React.Component {
   render() {
@@ -15,7 +16,7 @@ class Nav extends React.Component {
     return (
       <li key={category}>
         <h2 className="text-capitalize">
-          <Link href={`/sites/${category}`}>
+          <Link href={`${map.sites.route}/${category}`}>
             <a>
               <span role="img" aria-label="folder">
                 {category === selected ? "📂" : "📁"}
@@ -52,7 +53,7 @@ class Nav extends React.Component {
     const url = `${site.category}/${site.project}`;
     return (
       <li key={url}>
-        <Link href={`/sites/${url}`}>
+        <Link href={`${map.sites.route}/${url}`}>
           <a>{site.title}</a>
         </Link>
       </li>
@@ -60,10 +61,10 @@ class Nav extends React.Component {
   };
   handleSelectOption = (cat, value) => {
     const slash = value.length > 0 ? "/" : "";
-    const asPath = `/portfolio/${cat}${slash}${value}`;
+    const asPath = `${map.sites.page}/${cat}${slash}${value}`;
     Router.push({
       asPath: asPath,
-      pathname: "/sites",
+      pathname: map.sites.route,
       query: { category: cat, site: value }
     });
   };

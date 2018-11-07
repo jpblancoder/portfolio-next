@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Header from "./Header";
+import map from "../../lib/routes";
 
 const Sidebar = props => {
   return (
@@ -8,7 +9,7 @@ const Sidebar = props => {
 
       <div className="sidebar-action">
         {props.page === "index" ? (
-          <Link as="/sites" href="/portfolio">
+          <Link as={map.sites.route} href={map.sites.page}>
             <a className="btn btn-primary">
               <span role="img" aria-label="briefcase">
                 🖥
@@ -17,7 +18,7 @@ const Sidebar = props => {
             </a>
           </Link>
         ) : (
-          <Link href="/">
+          <Link href={map.index.route}>
             <a className="btn btn-primary">
               <span role="img" aria-label="nerd">
                 🤓
