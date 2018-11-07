@@ -19,7 +19,6 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <script async src="https://use.fonticons.com/8ecb48ec.js" />
         </body>
       </html>
     );
