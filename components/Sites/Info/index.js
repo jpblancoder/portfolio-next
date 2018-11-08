@@ -61,7 +61,9 @@ class Info extends React.Component {
         label: "Quid Novis Internet Productions"
       }
     };
-    const { href, label } = companies[category];
+    const company = companies[category];
+    if (!company) return null;
+    const { href, label } = company;
     return !href || !label ? null : (
       <div>
         <h3 className="project-subtitle">
