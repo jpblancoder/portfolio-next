@@ -61,10 +61,10 @@ class Nav extends React.Component {
   };
   handleSelectOption = (cat, value) => {
     const slash = value.length > 0 ? "/" : "";
-    const asPath = `${map.sites.page}/${cat}${slash}${value}`;
+    const asPath = `${map.sites.route}/${cat}${slash}${value}`;
     Router.push({
       asPath: asPath,
-      pathname: map.sites.route,
+      pathname: map.sites.page,
       query: { category: cat, site: value }
     });
   };
