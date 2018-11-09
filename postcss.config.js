@@ -1,11 +1,11 @@
 module.exports = {
-  "modules": false,
-  "plugins": {
-    "autoprefixer": {
-      "grid": false
+  modules: false,
+  plugins: {
+    autoprefixer: {
+      cascade: false
     },
-    "cssnano": {
+    cssnano: {
       zindex: false
     }
   }
-}
+};

@@ -1,5 +1,5 @@
-// https://github.com/zeit/next-plugins/tree/master/packages/next-less
 const withLess = require("@zeit/next-less");
+// const withSass = require("@zeit/next-sass");
 const projects = require("./lib/projects");
 const groupBy = require("lodash/groupBy");
 
@@ -9,6 +9,7 @@ const { join } = require("path");
 const { promisify } = require("util");
 const copyFile = promisify(fs.copyFile);
 
+// module.exports = withSass({
 module.exports = withLess({
   exportPathMap: async function(defaultPathMap, { dev, dir, outDir }) {
     if (dev) {
