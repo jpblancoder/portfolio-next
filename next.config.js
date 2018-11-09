@@ -1,5 +1,7 @@
 // https://github.com/zeit/next-plugins/tree/master/packages/next-less
 const withLess = require("@zeit/next-less");
+const projects = require("./lib/projects");
+const groupBy = require("lodash/groupBy");
 
 // copy the robots.txt for prod only
 const fs = require("fs");
@@ -12,17 +14,38 @@ module.exports = withLess({
     if (dev) {
       return defaultPathMap;
     }
-    // This will copy robots.txt from your project root into the out directory
+    // This will copy files from your project root into the out directory
     await copyFile(join(dir, "robots.txt"), join(outDir, "robots.txt"));
+    await copyFile(join(dir, "/static/favicons/favicon.ico"), join(outDir, "favicon.ico"));
 
-    // return {
-    //   "/": { page: "/" },
-    //   "/about": { page: "/about" },
-    //   "/readme.md": { page: "/readme" },
-    //   "/p/hello-nextjs": { page: "/post", query: { title: "hello-nextjs" } },
-    //   "/p/learn-nextjs": { page: "/post", query: { title: "learn-nextjs" } },
-    //   "/p/deploy-nextjs": { page: "/post", query: { title: "deploy-nextjs" } }
-    // };
-    return defaultPathMap;
+    // primary static pages
+    let routes = {
+      "/": { page: "/" },
+      "/sites": { page: "/portfolio" }
+    };
+
+    // dynamic portfolio category pages
+    const groups = groupBy(projects, "category");
+    Object.keys(groups).forEach(category => {
+      routes[`/sites/${category}`] = {
+        page: "/portfolio",
+        query: {
+          category: category
+        }
+      };
+    });
+
+    // dynamic portfolio site pages
+    projects.forEach(p => {
+      routes[`/sites/${p.category}/${p.project}`] = {
+        page: "/portfolio",
+        query: {
+          category: p.category,
+          site: p.project
+        }
+      };
+    });
+
+    return routes;
   }
 });

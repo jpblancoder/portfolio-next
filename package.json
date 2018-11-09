@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
+    "export": "npm run build && next export",
     "start": "NODE_ENV=production node server.js",
     "format": "prettier --write \"{components,lib,pages}/**/*.{js,jsx}\"",
     "lint": "eslint \"{components,lib,pages}/**/*.{js,jsx}\" --quiet",
