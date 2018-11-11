@@ -5,6 +5,8 @@ import "../styles/bootstrap/less/bootstrap.less";
 import "../styles/font-awesome/fa-svg-core-styles.less";
 import "../styles/app.less";
 
+import "../lib/font-awesome";
+
 export default class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
