@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import Router from "next/router";
 import Link from "next/link";
@@ -19,7 +20,7 @@ class Nav extends React.Component {
           <Link href={`${map.sites.route}/${category}`}>
             <a>
               <span role="img" aria-label="folder">
-                {category === selected ? "📂" : "📁"}
+                <FontAwesomeIcon icon={category === selected ? "folder-open" : "folder"} />
               </span>{" "}
               {category}
             </a>

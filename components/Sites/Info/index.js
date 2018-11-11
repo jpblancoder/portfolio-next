@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
 class Info extends React.Component {
@@ -17,7 +18,7 @@ class Info extends React.Component {
       <div>
         <h3 className="project-subtitle">
           <span role="img" aria-label="gear">
-            ⚙️
+            <FontAwesomeIcon icon="cog" />
           </span>{" "}
           <span>Technology</span>
         </h3>
@@ -34,7 +35,7 @@ class Info extends React.Component {
       <div>
         <h3 className="project-subtitle">
           <span role="img" aria-label="check mark">
-            ✅
+            <FontAwesomeIcon icon="check-circle" />
           </span>{" "}
           <span>Features</span>
         </h3>
@@ -68,7 +69,7 @@ class Info extends React.Component {
       <div>
         <h3 className="project-subtitle">
           <span role="img" aria-label="copyright">
-            ©
+            <FontAwesomeIcon icon="copyright" />
           </span>{" "}
           <span>Copyright</span>
         </h3>

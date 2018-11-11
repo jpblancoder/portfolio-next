@@ -1,7 +1,7 @@
-const withLess = require("@zeit/next-less");
-// const withSass = require("@zeit/next-sass");
 const projects = require("./lib/projects");
 const groupBy = require("lodash/groupBy");
+
+const withLess = require("@zeit/next-less");
 
 // copy the robots.txt for prod only
 const fs = require("fs");

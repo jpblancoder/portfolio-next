@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
 class Shots extends React.Component {
@@ -26,7 +27,7 @@ class Shots extends React.Component {
         <a target="_blank" rel="noopener noreferrer" href={url}>
           {url}{" "}
           <span role="img" aria-label="link">
-            🔗
+            <FontAwesomeIcon icon="external-link-alt" />
           </span>
         </a>
       </div>

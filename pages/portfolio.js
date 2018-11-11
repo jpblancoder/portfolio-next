@@ -1,6 +1,3 @@
-import "../styles/bootstrap/less/bootstrap.less";
-import "../styles/app.less";
-
 import React from "react";
 import Head from "next/head";
 import { withRouter } from "next/router";
