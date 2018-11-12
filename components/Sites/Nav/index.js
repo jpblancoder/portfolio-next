@@ -35,11 +35,13 @@ class Nav extends React.Component {
     const keys = Object.keys(sites[category]);
     return category !== selected ? null : (
       <div>
-        <select className="sidebar-select hidden-md hidden-lg hidden-xl" onBlur={handleChange} onChange={handleChange}>
+        <select className="sidebar-select d-md-none d-lg-none d-xl-none" onBlur={handleChange} onChange={handleChange}>
           <option value="">Select project...</option>
           {keys.map(site => this.renderSelectOption(sites[category][site]))}
         </select>
-        <ul className="hidden-xs hidden-sm">{keys.map(site => this.renderSiteLink(sites[category][site]))}</ul>
+        <ul className="sidebar-submenu d-none d-sm-none d-md-block">
+          {keys.map(site => this.renderSiteLink(sites[category][site]))}
+        </ul>
       </div>
     );
   };

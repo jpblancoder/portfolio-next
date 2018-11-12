@@ -18,7 +18,7 @@ const Header = () => (
             Senior Front End Developer
           </a>
         </span>
-        <div className="sidebar-desc-break visible-xs visible-md" />
+        <div className="sidebar-desc-break d-sm-none d-md-block" />
         <span className="sidebar-desc-line">
           {" "}
           in{" "}

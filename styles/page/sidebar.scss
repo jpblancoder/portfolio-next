@@ -1,0 +1,119 @@
+.sidebar {
+  padding: 0 rem(20);
+}
+
+.sidebar-title {
+  margin-top: rem(20);
+  color: #333;
+}
+
+.sidebar-desc {
+  margin-bottom: rem(20);
+  color: #666;
+}
+
+.sidebar-action {
+  margin-bottom: rem(20);
+
+  >.btn {
+    margin-bottom: rem(8);
+  }
+}
+
+.sidebar-select {
+  max-width: 100%;
+}
+
+.sidebar-submenu {
+  font-size: 0.9rem;
+}
+
+.sidebar-intro {
+  margin-bottom: rem(20);
+  color: #666;
+}
+
+.sidebar-hashtags {
+  margin-bottom: rem(20);
+  font-size: rem(14);
+  color: #999;
+}
+
+.sidebar-hashlink {
+  padding-bottom: rem(6);
+}
+
+.sidebar-desc-break {
+  height: rem(4);
+}
+
+.sidebar-creds {
+  font-size: rem(14);
+  color: #666;
+}
+
+.sidebar-cat-link {
+  padding-right: rem(8);
+}
+
+@include media-breakpoint-only(md) {
+  .sidebar-title {
+    font-size: rem(32);
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .sidebar-title {
+    margin-top: rem(10);
+    font-size: rem(22);
+  }
+
+  .sidebar {
+    margin-top: rem(85);
+    margin-bottom: rem(16);
+    padding: rem(30) rem(15);
+    text-align: center;
+    background-color: #fff;
+    border-radius: rem(4);
+  }
+
+  .sidebar-intro {
+    max-width: rem(500);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+
+  .sidebar-creds {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.sidebar-social-list {
+  padding-left: 0;
+  list-style: none;
+  margin: 0 0 rem(10) rem(-6);
+  @include clearfix();
+
+  >li {
+    display: inline-block;
+    padding: 0 rem(8);
+
+    a {
+      color: #778888;
+      font-size: rem(48);
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: #334455;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.sidebar-list-sites {
+  text-align: left;
+}

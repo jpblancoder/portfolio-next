@@ -1,7 +1,6 @@
 const projects = require("./lib/projects");
 const groupBy = require("lodash/groupBy");
-
-const withLess = require("@zeit/next-less");
+const withSass = require("@zeit/next-sass");
 
 // copy the robots.txt for prod only
 const fs = require("fs");
@@ -9,8 +8,7 @@ const { join } = require("path");
 const { promisify } = require("util");
 const copyFile = promisify(fs.copyFile);
 
-// module.exports = withSass({
-module.exports = withLess({
+module.exports = withSass({
   exportPathMap: async function(defaultPathMap, { dev, dir, outDir }) {
     if (dev) {
       return defaultPathMap;

@@ -1,0 +1,22 @@
+// Bootstrap 4 variable overrides
+
+$primary: #1C4784;
+$secondary: #2C3E50;
+$success: #18BC9C;
+$info: #3498DB;
+$warning: #F39C12;
+$danger: #E74C3C;
+
+$body-color: $primary;
+$link-color: $success;
+
+$border-width: 2px;
+
+$font-family-serif: "Merriweather",
+"Helvetica Neue",
+Helvetica,
+Arial,
+sans-serif;
+$headings-font-family: $font-family-serif;
+$headings-font-weight: 400;
+$headings-line-height: 1.2;

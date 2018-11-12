@@ -1,0 +1,14 @@
+// These functions were taken from Bourbon:
+// http://bourbon.io/docs/
+@function strip-unit($value) {
+  @return ($value / ($value * 0 + 1));
+}
+
+// Convert PX value to REM value
+@function rem($size, $font-size: 16px) {
+  @if not unitless($size) {
+    $size: strip-unit($size);
+  }
+
+  @return ($size / strip-unit($font-size)) * 1rem;
+}

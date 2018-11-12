@@ -1,10 +1,6 @@
 import React from "react";
 import App, { Container } from "next/app";
-
-import "../styles/bootstrap/less/bootstrap.less";
-import "../styles/font-awesome/fa-svg-core-styles.less";
-import "../styles/app.less";
-
+import "../styles/app.scss";
 import "../lib/font-awesome";
 
 export default class MyApp extends App {

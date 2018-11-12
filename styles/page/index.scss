@@ -1,0 +1,64 @@
+// body {
+//   font-size: 14px;
+// }
+
+.cover-photo {
+  position: fixed;
+  top: 0;
+  right: 0;
+  min-height: 100vh;
+  padding: 0;
+  background-image: url("/static/cover/index-cover.jpg"); // 1050px
+  // background-image: url("https://www.gravatar.com/avatar/2da2ad72e91be4729bce14d36ac513d3?s=1050"); // 1050px
+  background-size: cover;
+  background-color: #333;
+  background-position: 47.5025% 54.1429%;
+  background-repeat: no-repeat;
+}
+
+// hexagaon photo
+// ----------------------------------
+.pic-hex {
+  display: none;
+  margin: -110px auto 0 auto;
+  overflow: hidden;
+  visibility: hidden;
+  transform: rotate(120deg);
+}
+
+.pic-hex-2 {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-60deg);
+}
+
+.pic-hex-3 {
+  visibility: visible;
+  width: 100%;
+  height: 100%;
+  background: url("/static/cover/index-thumb.jpg") 50% no-repeat; // 160px
+  // background: url("https://www.gravatar.com/avatar/2da2ad72e91be4729bce14d36ac513d3?s=160") 50% no-repeat; // 160px
+  transform: rotate(-60deg);
+}
+
+@mixin make-pic-hex-point($width) {
+  width: ($width / 1.142857142857143);
+  height: $width;
+}
+
+.pic-hex-point {
+  @include make-pic-hex-point(160px);
+}
+
+@include media-breakpoint-down(sm) {
+  body {
+    background-attachment: fixed;
+    background-color: $primary;
+    background-image: linear-gradient(135deg, $primary 0%, lighten($primary, 20%) 100%);
+  }
+
+  .pic-hex {
+    display: block;
+  }
+}
