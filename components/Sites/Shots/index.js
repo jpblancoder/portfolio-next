@@ -43,7 +43,11 @@ class Shots extends React.Component {
     for (let i = 1; i <= screens; i++) {
       pics.push(
         <a target="_blank" rel="noopener noreferrer" href={`/static/screens/${category}/${project}/source/${i}.png`}>
-          <img className="img-fluid" src={`/static/screens/${category}/${project}/${i}.png`} alt={`${project} #${i}`} />
+          <img
+            className="img-fluid img-thumbnail"
+            src={`/static/screens/${category}/${project}/${i}.png`}
+            alt={`${project} #${i}`}
+          />
         </a>
       );
     }
