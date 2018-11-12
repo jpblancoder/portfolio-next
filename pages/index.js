@@ -16,7 +16,7 @@ class About extends React.Component {
           <title>Jean Pierre Blanchette - About</title>
         </Head>
         <div className="row">
-          <div className="col-12 col-sm-12 col-md-5">
+          <div className="col-12 col-sm-12 col-md-4">
             <Sidebar page="index">
               <Intro />
               <Experience />
@@ -24,7 +24,7 @@ class About extends React.Component {
               <Hashtags />
             </Sidebar>
           </div>
-          <div className="d-none d-sm-none d-md-block col-md-7 cover-photo">&nbsp;</div>
+          <div className="d-none d-sm-none d-md-block col-md-8 cover-photo">&nbsp;</div>
         </div>
       </Layout>
     );
