@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "node server.js",
+    "open": "open 'http://localhost:3000'",
     "build": "next build",
     "export": "npm run build && next export",
     "start": "NODE_ENV=production node server.js",
@@ -32,7 +33,7 @@
     "@zeit/next-sass": "1.0.1",
     "autoprefixer": "9.3.1",
     "babel-eslint": "10.0.1",
-    "bootstrap": "4.1.3",
+    "bootstrap": "4.3.1",
     "cssnano": "4.1.7",
     "eslint": "5.8.0",
     "eslint-config-prettier": "3.1.0",
